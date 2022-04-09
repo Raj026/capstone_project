@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/capture"
+    android:gravity="bottom">
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="175dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        android:layout_margin="30dp"
+        />
+
+    <TextView
+        android:layout_width="151dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="-150dp"
+        android:layout_marginRight="30dp"
+        android:text="UserName"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+
+
+
+</LinearLayout>
