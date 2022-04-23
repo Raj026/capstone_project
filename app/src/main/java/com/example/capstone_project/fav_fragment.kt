@@ -34,7 +34,7 @@ class profile_fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_fragment, container, false)
+        return inflater.inflate(R.layout.fav_fragment, container, false)
     }
 
     companion object {
@@ -54,6 +54,7 @@ class profile_fragment : Fragment() {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
+
             }
     }
 }
