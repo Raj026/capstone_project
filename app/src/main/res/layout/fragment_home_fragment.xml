@@ -42,25 +42,89 @@
 
             />
     </com.google.android.material.navigation.NavigationView>
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <FrameLayout
-            android:id="@+id/frame_lay"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+
+
+
+
+
+        >
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/button00"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Button" />
+        </LinearLayout>
 
 
 
 
-
-
-
-
-
+    </ScrollView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
