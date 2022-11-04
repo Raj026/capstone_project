@@ -3,10 +3,12 @@ package com.example.capstone_project
 //import android.widget.Toolbar
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,39 +22,59 @@ Dashboard : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-        var home: Home_fragment
-        var profile: profile_fragment
+        var home: HomeFragment
+        var profile: profileFragment
         var settings: settings_fragment
         var drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         val navigationview = findViewById<NavigationView>(R.id.design_navigation_view)
         val toolbar: Toolbar = findViewById(R.id.toolbar3)
         val bottomnav: BottomNavigationView = findViewById(R.id.bottom_nav)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        navigationview.setNavigationItemSelectedListener {
+            if (it.itemId == R.id.nav_profile){
+                val intent = Intent(this, AdminActivity::class.java)
+                this.startActivity(intent)
+            }
+            return@setNavigationItemSelectedListener true
+        }
 
         val addThread = findViewById<FloatingActionButton>(R.id.add_threads_dashboard)
         addThread.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.add_threads_dashboard, add_threads())
-                .commit()}
-
-        supportFragmentManager.beginTransaction().replace(R.id.container_fragment, Home_fragment())
+            val intent = Intent(this, AddThread::class.java)
+            startActivity(intent)
+        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportFragmentManager.beginTransaction().replace(R.id.container_fragment, HomeFragment())
             .commit()
-        loadFragment(Home_fragment.newinstance())
+        loadFragment(HomeFragment.newinstance())
+
 
         bottomnav.setOnItemSelectedListener {
             var fragment: Fragment
             when (it.itemId) {
                 R.id.home -> {
-                    fragment = Home_fragment()
+                    fragment = HomeFragment()
+                    addThread.isVisible = true
                     loadFragment(fragment)
                     true
                 }
                 R.id.fav -> {
-                    fragment = profile_fragment()
+                    fragment = FavFragment()
+                    addThread.isVisible = true
                     loadFragment(fragment)
                     true
                 }
                 R.id.search -> {
                     fragment = settings_fragment()
+                    addThread.isVisible = false
+                    loadFragment(fragment)
+                    true
+                }
+
+                R.id.profile -> {
+                    fragment = profileFragment()
+                    addThread.isVisible = false
                     loadFragment(fragment)
                     true
                 }
@@ -94,10 +116,15 @@ Dashboard : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener 
             .commit()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_profile -> {
-                val intent = Intent(this, admin_fragment::class.java)
+                val intent = Intent(this, AdminActivity::class.java)
                 this.startActivity(intent)
                 return true
             }
@@ -107,7 +134,11 @@ Dashboard : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        TODO("Not yet implemented")
+        if(item.itemId == R.id.nav_profile) {
+            val intent = Intent(this, AdminActivity::class.java)
+            this.startActivity(intent)
+        }
+        return true
     }
 
 

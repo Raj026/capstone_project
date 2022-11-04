@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class Home_fragment : Fragment() {
+class HomeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,7 +18,7 @@ class Home_fragment : Fragment() {
     }
 
     companion object{
-        fun newinstance() = Home_fragment()
+        fun newinstance() = HomeFragment()
     }
 
 

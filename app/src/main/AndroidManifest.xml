@@ -13,8 +13,14 @@
             android:name=".Dashboard"
             android:exported="false" />
         <activity
+            android:name=".AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".Signup"
             android:exported="false" />
+        <activity
+            android:name=".AddThread"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
